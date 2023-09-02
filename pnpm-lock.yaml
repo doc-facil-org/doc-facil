@@ -29,6 +29,9 @@ dependencies:
   '@angular/router':
     specifier: ^16.2.0
     version: 16.2.0(@angular/common@16.2.0)(@angular/core@16.2.0)(@angular/platform-browser@16.2.0)(rxjs@7.8.0)
+  '@auth0/auth0-angular':
+    specifier: 2.2.1
+    version: 2.2.1(@angular/common@16.2.0)(@angular/core@16.2.0)(@angular/router@16.2.0)
   rxjs:
     specifier: ~7.8.0
     version: 7.8.0
@@ -426,6 +429,24 @@ packages:
   /@assemblyscript/loader@0.10.1:
     resolution: {integrity: sha512-H71nDOOL8Y7kWRLqf6Sums+01Q5msqBW2KhDUTemh1tvY04eSkSXrK0uj/4mmY0Xr16/3zyZmsrxN7CKuRbNRg==}
     dev: true
+
+  /@auth0/auth0-angular@2.2.1(@angular/common@16.2.0)(@angular/core@16.2.0)(@angular/router@16.2.0):
+    resolution: {integrity: sha512-ie9CMNOdQ3mkhhe09SEporCayDuuPYHNmctyHeV6caVgZVSSu9FlFt2ec6CkX27ufDq7yCdyJGnDixWxNtUG+Q==}
+    peerDependencies:
+      '@angular/common': '>=13'
+      '@angular/core': '>=13'
+      '@angular/router': '>=13'
+    dependencies:
+      '@angular/common': 16.2.0(@angular/core@16.2.0)(rxjs@7.8.0)
+      '@angular/core': 16.2.0(rxjs@7.8.0)(zone.js@0.13.0)
+      '@angular/router': 16.2.0(@angular/common@16.2.0)(@angular/core@16.2.0)(@angular/platform-browser@16.2.0)(rxjs@7.8.0)
+      '@auth0/auth0-spa-js': 2.1.2
+      tslib: 2.6.1
+    dev: false
+
+  /@auth0/auth0-spa-js@2.1.2:
+    resolution: {integrity: sha512-xdA65Z/U7++Y7L9Uwh8Q8OVOs6qgFz+fb7GAzHFjpr1icO37B//xdzLXm7ZRgA19RWrsNe1nme3h896igJSvvw==}
+    dev: false
 
   /@babel/code-frame@7.22.10:
     resolution: {integrity: sha512-/KKIMG4UEL35WmI9OlvMhurwtytjvXoFcGNrOvyG9zIzA8YmPjVtIZUf7b05+TPO7G7/GEmLHDaoCgACHl9hhA==}
@@ -6650,7 +6671,6 @@ packages:
 
   /tslib@2.6.1:
     resolution: {integrity: sha512-t0hLfiEKfMUoqhG+U1oid7Pva4bbDPHYfJNiB7BiIjRkj1pyC++4N3huJfqY6aRH6VTB0rvtzQwjM4K6qpfOig==}
-    dev: true
 
   /tuf-js@1.1.7:
     resolution: {integrity: sha512-i3P9Kgw3ytjELUfpuKVDNBJvk4u5bXL6gskv572mcevPbSKCV3zt3djhmlEQ65yERjIbOSncy7U4cQJaB1CBCg==}
