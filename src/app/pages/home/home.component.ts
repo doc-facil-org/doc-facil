@@ -1,11 +1,12 @@
 import {Component, inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {AuthService} from "@auth0/auth0-angular";
+import {MatButtonModule} from "@angular/material/button";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+    imports: [CommonModule, MatButtonModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
