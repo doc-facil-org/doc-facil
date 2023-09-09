@@ -18,7 +18,6 @@ import {MatToolbarModule} from "@angular/material/toolbar";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  public auth =  inject(AuthService);
-  logout() { this.auth.logout({ logoutParams: { returnTo: document.location.origin } }); }
+
 
 }
