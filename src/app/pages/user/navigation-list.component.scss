@@ -1,0 +1,24 @@
+@import "docfacil-theme";
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    height: 3rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $accent-color;
+    color: $accent-color;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  li:hover {
+    background-color: grey;
+  }
+}
+
+.active {
+  background-color: lightgray;
+}

@@ -6,11 +6,12 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {AuthService} from "@auth0/auth0-angular";
+import {NavigationListComponent} from "./navigation-list.component";
 
 @Component({
   selector: 'app-user',
   standalone: true,
-    imports: [CommonModule, RouterOutlet, MatSidenavModule, MatToolbarModule, MatIconModule, MatButtonModule],
+  imports: [CommonModule, RouterOutlet, MatSidenavModule, MatToolbarModule, MatIconModule, MatButtonModule, NavigationListComponent],
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
