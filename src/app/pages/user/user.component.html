@@ -1,0 +1,20 @@
+<mat-toolbar color="accent">
+  <button mat-icon-button aria-label="Abrir menu" (click)="drawer.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="title">Doc Fácil</span>
+  <span style="flex: 1 1 auto;"></span>
+</mat-toolbar>
+
+<mat-drawer-container autosize>
+  <mat-drawer #drawer  mode="side">
+    <p>Meus clientes</p>
+    <p>Minha organizacao</p>
+    <p>Guia</p>
+  </mat-drawer>
+
+  <article>
+    <router-outlet></router-outlet>
+  </article>
+
+</mat-drawer-container>

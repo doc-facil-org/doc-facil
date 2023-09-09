@@ -12,7 +12,7 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(AuthModule.forRoot({
         domain: environment.auth0Domain,
         clientId: environment.clientId,
-        authorizationParams: { redirect_uri: `${window.location.origin}/home` }
+        authorizationParams: { redirect_uri: `${window.location.origin}/user/home` }
     })),
     provideAnimations()
 ],

@@ -3,7 +3,9 @@
 @import "docfacil-theme";
 @import "material-theme";
 
-
-html, body { height: 100%; }
+html, body {
+  height: 100%;
+  background-color: $background-color;
+}
 body { margin: 0; font-family: $primary-font; }
 

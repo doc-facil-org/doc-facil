@@ -12,8 +12,69 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$doc-facil-primary: mat.define-palette(mat.$indigo-palette);
-$doc-facil-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$docfacil-primary-palette: (
+  50: #fffce0,
+  100: #fcf7db,
+  200: #f7f2d6,
+  300: #ede8cc,
+  400: #cac6ab,
+  500: #aca88d,
+  600: #827e65,
+  700: #6d6951,
+  800: #4d4a33,
+  900: #2a2813,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+
+$docfacil-accent-palette: (
+  50: #f0eeff,
+  100: #d4d9f1,
+  200: #bcbfdc,
+  300: #a2a6c7,
+  400: #8e92b5,
+  500: #7a7fa5,
+  600: #6b7194,
+  700: #585d7c,
+  800: #474b65,
+  900: #33364d,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+
+
+//$doc-facil-primary: mat.define-palette($docfacil-primary-palette);
+//$doc-facil-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$doc-facil-primary: mat.define-palette($docfacil-primary-palette);
+$doc-facil-accent: mat.define-palette($docfacil-accent-palette, 900);
 
 // The warn palette is optional (defaults to red).
 $doc-facil-warn: mat.define-palette(mat.$red-palette);
