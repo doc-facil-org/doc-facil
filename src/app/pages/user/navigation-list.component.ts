@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {RouterLink, RouterLinkActive} from "@angular/router";
+import { RouterLink, RouterLinkActive } from "@angular/router";
 
 @Component({
   selector: 'app-navigation-list',
@@ -12,7 +12,7 @@ import {RouterLink, RouterLinkActive} from "@angular/router";
         MEUS CLIENTES
       </li>
       <li routerLink="./org" routerLinkActive="active" ariaCurrentWhenActive="page">
-        MINHA ORGANIZAÇAO
+        Gestão da organização
       </li>
       <li routerLink="./guide" routerLinkActive="active" ariaCurrentWhenActive="page">
         GUIA DE INSTRUÇOES
