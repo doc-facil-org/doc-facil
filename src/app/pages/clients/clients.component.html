@@ -1,0 +1,33 @@
+<article>
+    <h1>Meus clientes</h1>
+
+    <!-- In case its the first client to create -->
+    <div *ngIf="true">
+        <h3 class="add-client-text">Addiciona seu primeiro cliente!</h3>
+        <button color="primary" (click)="openCreateClientDialog()" color="primary-green">
+            <mat-icon>person_add</mat-icon> Adicionar cliente
+        </button>
+    </div>
+
+    <!-- In case user has already clients -->
+    <div *ngIf="true">
+        <div>
+            <button mat-button (click)="openCreateClientDialog()">
+                <mat-icon>person_add</mat-icon> Adicionar cliente
+            </button>
+            <button mat-button (click)="openDownloadDocumentDialog()" [disabled]="true">
+                <mat-icon>touch_app</mat-icon> Solicitar encerramento na prefeitura
+            </button>
+        </div>
+
+        <div>
+            <mat-tab-group animationDuration="0ms" (selectedTabChange)="tabChanged($event)">
+                <mat-tab *ngFor="let data of tableData" label="{{ data.city }}">
+
+                    <!-- <app-client-table
+                        [dataSource]="data.clients"></app-client-table> -->
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+</article>
