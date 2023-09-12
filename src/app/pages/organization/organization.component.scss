@@ -1,0 +1,9 @@
+@import "docfacil-theme";
+
+table {
+    background-color: $background-color;
+
+    th[mat-header-cell] {
+        font-weight: bolder;
+    }
+}
