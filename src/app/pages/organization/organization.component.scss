@@ -1,9 +1,15 @@
 @import "docfacil-theme";
 
-table {
+article {
+  padding: 1rem;
+  table {
     background-color: $background-color;
-
     th[mat-header-cell] {
-        font-weight: bolder;
+      font-weight: bolder;
     }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  h1 { font-size: 2rem; }
 }
