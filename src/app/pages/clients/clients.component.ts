@@ -52,7 +52,7 @@ export class ClientsComponent {
   allClients: Client[] = [
     {
       name: 'JULIA CRISTINA',
-      cnpj: '39470165000162',
+      cnpj: '39470165000772',
       password: '123',
       city: PREFEITURAS.portoAlgre,
       createdBy: 'user1',
@@ -76,7 +76,7 @@ export class ClientsComponent {
     },
     {
       name: 'ALEXANDRE CARVALHO',
-      cnpj: '33925988000159',
+      cnpj: '31925988000159',
       password: '123',
       city: PREFEITURAS.portoAlgre,
       createdBy: 'user1',
@@ -88,7 +88,7 @@ export class ClientsComponent {
     },
     {
       name: 'RODRIGO PNTICELLI',
-      cnpj: '35789864000119',
+      cnpj: '35789934000119',
       password: '123',
       city: PREFEITURAS.canoas,
       createdBy: 'user1',
@@ -100,7 +100,7 @@ export class ClientsComponent {
     },
     {
       name: 'MARIA MIRANDA',
-      cnpj: '39470165000162',
+      cnpj: '39470165910162',
       password: '123',
       city: PREFEITURAS.canoas,
       createdBy: 'user1',
