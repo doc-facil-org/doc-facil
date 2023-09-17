@@ -10,8 +10,8 @@
 </mat-toolbar>
 
 <mat-drawer-container autosize>
-  <mat-drawer #drawer mode="side" class="toggle-menu">
-    <app-navigation-list></app-navigation-list>
+  <mat-drawer #drawer mode="side">
+    <app-navigation-list (navEvent)="drawer.close()"></app-navigation-list>
   </mat-drawer>
 
   <article>
