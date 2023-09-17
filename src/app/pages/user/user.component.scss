@@ -4,13 +4,11 @@ mat-drawer-container  {
   width: 100%;
   height: 100%;
   background-color: $background-color;
-}
 
-mat-drawer {
-  width: 100%;
-  @media screen and (min-width: 768px) {
-    width: 30%;
-  }
+  .toggle-menu {
+    @media screen and (min-width: 768px) {
+      width: 50%;
+    }
 }
 
 .title {
