@@ -1,11 +1,15 @@
 @import "docfacil-theme";
 
-mat-drawer-container, mat-drawer {
+mat-drawer-container,
+mat-drawer {
   width: 100%;
   height: 100%;
   background-color: $background-color;
-  @media screen and (min-width: 768px) {
-    width: 50%;
+
+  .toggle-menu {
+    @media screen and (min-width: 768px) {
+      width: 50%;
+    }
   }
 }
 
