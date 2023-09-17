@@ -8,7 +8,7 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
   imports: [CommonModule, RouterLink, RouterLinkActive],
   template: `
     <ul>
-      <li routerLink="./home" routerLinkActive="active" ariaCurrentWhenActive="page">
+      <li routerLink="./clients" routerLinkActive="active" ariaCurrentWhenActive="page">
         MEUS CLIENTES
       </li>
       <li routerLink="./org" routerLinkActive="active" ariaCurrentWhenActive="page">
