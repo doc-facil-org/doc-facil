@@ -1,13 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { Client, JobStatus } from '../clients.component';
 
 export interface ClientTableData {
-  pos: number,
+  index: number,
   name: string,
   cnpj: string,
-  status: JobStatus,
 }
 @Component({
   selector: 'app-client-table',
@@ -17,6 +15,10 @@ export interface ClientTableData {
   styleUrls: ['./client-table.component.scss']
 })
 export class ClientTableComponent {
-  @Input('dataSource') dataSource = new MatTableDataSource<Client[]>()
-
+  @Input('dataSource') dataSource = new MatTableDataSource<ClientTableData>()
+  displayedColumns: string[] = [
+    'index',
+    'name',
+    'cnpj',
+  ]
 }

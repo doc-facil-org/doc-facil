@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabChangeEvent, MatTabsModule } from '@angular/material/tabs';
-import { ClientTableComponent } from './client-table/client-table.component';
+import { ClientTableComponent, ClientTableData } from './client-table/client-table.component';
+import { MatTableDataSource } from '@angular/material/table';
 
 export enum CLIENT_STATUS {
   idle = 'idle',
@@ -34,7 +35,7 @@ export enum PREFEITURAS {
 
 export interface TableData {
   city: string,
-  clients: Client[]
+  clientForCity: MatTableDataSource<ClientTableData>
 }
 
 
@@ -111,22 +112,32 @@ export class ClientsComponent {
     },
   ]
 
-  tableData: TableData[] = [
-  ]
-
-
+  tableData: TableData[] = []
+  selectedTab = ''
 
   constructor() {
+    Object.values(PREFEITURAS).forEach((city) => {
+      let clientPerCity = this.allClients
+        .filter((client) => client.city == city)
+        .map((client, index) => ({ ...client, index: (index + 1) }));
 
-    for (let city of Object.values(PREFEITURAS)) {
-      this.tableData.push({ city, clients: this.allClients.filter((client) => client.city == city) });
-    }
+      this.tableData.push({
+        city,
+        clientForCity: new MatTableDataSource<ClientTableData>(clientPerCity)
+      })
+    })
+
+    this.selectedTab = this.tableData[0]
+      ? this.tableData[0].city
+      : ''
   }
 
   openCreateClientDialog() { }
 
   openDownloadDocumentDialog() { }
 
-  tabChanged(tabChangeEvent: MatTabChangeEvent) { }
+  tabChanged(tabChangeEvent: MatTabChangeEvent) {
+    this.selectedTab = this.tableData[tabChangeEvent.index].city
+  }
 
 }
