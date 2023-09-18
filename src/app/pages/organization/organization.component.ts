@@ -1,52 +1,29 @@
-import { Component, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {Component, inject, OnInit} from '@angular/core';
+import {CommonModule, NgIf} from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
-
-export interface Org {
-  uid: string,
-  name: string,
-  created: number,
-  members: Member[]
-  subscription: string,
-}
-
-export interface Member {
-  name: string,
-  email: string,
-  role: ROLE
-}
-
-export enum ROLE {
-  'owner' = 'owner',
-  'admin' = 'admin',
-  'member' = 'member',
-}
+import {OrganizationService} from "./organization.service";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {Observable, of} from "rxjs";
+import {Org} from "./organization-types";
 
 @Component({
   selector: 'app-organization',
   standalone: true,
-  imports: [CommonModule, MatTabsModule, MatListModule, MatTableModule],
+  imports: [CommonModule, MatTabsModule, MatListModule, MatTableModule, MatProgressSpinnerModule, NgIf],
   templateUrl: './organization.component.html',
-  styleUrls: ['./organization.component.scss']
+  styleUrls: ['./organization.component.scss'],
+  providers: [OrganizationService]
 })
-export class OrganizationComponent {
+export class OrganizationComponent implements OnInit {
+  private orgService = inject(OrganizationService);
+  org$: Observable<Org | null> = of(null);
 
-  org: Org = {
-    uid: 'random',
-    name: 'Test Org',
-    created: 1694305214,
-    members: [
-      { name: 'user1', email: 'user1@test.de', role: ROLE.owner },
-      { name: 'user2', email: 'user2@test.de', role: ROLE.admin },
-      { name: 'user3', email: 'user3@test.de', role: ROLE.member },
-      { name: 'user4', email: 'user4@test.de', role: ROLE.member },
-    ],
-    subscription: 'Enterprise',
+  tableDisplayedColumns: string[] = ['name', 'email', 'role'];
+
+  ngOnInit(): void {
+    this.org$ = this.orgService.getOrganization();
   }
-
-  displayedColumns: string[] = ['name', 'email', 'role'];
-  dataSource = this.org.members;
 
 }
