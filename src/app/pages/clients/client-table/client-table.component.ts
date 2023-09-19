@@ -1,12 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
+import {Client} from "../clients-types";
 
-export interface ClientTableData {
-  index: number,
-  name: string,
-  cnpj: string,
-}
 @Component({
   selector: 'app-client-table',
   standalone: true,
@@ -15,10 +11,7 @@ export interface ClientTableData {
   styleUrls: ['./client-table.component.scss']
 })
 export class ClientTableComponent {
-  @Input('dataSource') dataSource = new MatTableDataSource<ClientTableData>()
-  displayedColumns: string[] = [
-    'index',
-    'name',
-    'cnpj',
-  ]
+  @Input() clients: Client[] = [];
+  displayedColumns = ['name', 'cnpj']
+
 }

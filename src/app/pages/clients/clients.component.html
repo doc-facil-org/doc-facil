@@ -1,33 +1,24 @@
-<div class="page-container">
-    <h1>Meus clientes</h1>
+<article class="page-container">
+  <h1>Meus clientes</h1>
 
-    <!-- In case its the first client to create -->
-    <div *ngIf="false">
-        <div class="center">
-            <h3 class="add-client-text">Addiciona seu primeiro cliente!</h3>
-            <button color="primary" (click)="openCreateClientDialog()" color="primary-green">
-                <mat-icon>person_add</mat-icon> Adicionar cliente
-            </button>
-        </div>
-    </div>
-
-    <!-- In case user has already clients -->
-    <div *ngIf="true" class="center">
-        <div class="button-header">
-            <button mat-button (click)="openCreateClientDialog()">
-                <mat-icon>person_add</mat-icon> Adicionar cliente
-            </button>
-            <button mat-button (click)="openDownloadDocumentDialog()" [disabled]="true">
-                <mat-icon>touch_app</mat-icon> Solicitar encerramento
-            </button>
-        </div>
-
-        <div class="table">
-            <mat-tab-group animationDuration="0ms" (selectedTabChange)="tabChanged($event)">
-                <mat-tab *ngFor="let data of tableData" label="{{ data.city }}">
-                    <app-client-table [dataSource]="data.clientForCity"></app-client-table>
-                </mat-tab>
-            </mat-tab-group>
-        </div>
-    </div>
-</div>
+  <ng-container *ngIf="clients$ | async as cityClients; else loading">
+    <section>
+      <button mat-raised-button color="accent">
+        <mat-icon fontIcon="person_add"></mat-icon>
+        Adicionar cliente
+      </button>
+      <mat-tab-group animationDuration="0ms" *ngIf="cityClients.total > 0 else emptyClients">
+        <mat-tab label="Porto Alegre">
+          <app-client-table [clients]="cityClients.poa"></app-client-table>
+        </mat-tab>
+        <mat-tab label="Canoas">
+          <app-client-table [clients]="cityClients.canoas"></app-client-table>
+        </mat-tab>
+      </mat-tab-group>
+      <ng-template #emptyClients>
+        <h2>Você ainda não possui clientes cadastrados!</h2>
+      </ng-template>
+    </section>
+  </ng-container>
+  <ng-template #loading><mat-spinner></mat-spinner></ng-template>
+</article>

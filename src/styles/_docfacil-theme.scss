@@ -20,16 +20,18 @@ $accent-color: #33364D;
 //background-color: #e5e5e5; dark
 //background-color: #F2F2f2; light
 
+
 .page-container {
-    background-color: $background-color;
+  padding: 1rem;
+  h1 {
+    font-size: 1.5rem;
+    font-family: $accent-font;
+    color: $accent-color;
+    margin: 1rem 0;
+  }
+  mat-spinner { margin: auto; }
 
-    h1 {
-        font-family: $accent-font;
-        font-size: 2rem;
-    }
-
-    @media screen and (min-width: 768px) {
-        //border: 3px solid $accent-color;
-        border-radius: 4px;
-    }
+  @media screen and (min-width: 768px) {
+    h1 { font-size: 2rem; }
+  }
 }
