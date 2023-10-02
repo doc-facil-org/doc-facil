@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
-import {concatMap, interval, map, Observable, of} from "rxjs";
-import {CITY_ENUM, Client, CLIENT_STATUS_ENUM} from "./clients-types";
+import { Injectable } from '@angular/core';
+import { concatMap, interval, map, Observable, of } from "rxjs";
+import { CITY_ENUM, Client, CLIENT_STATUS_ENUM } from "./clients-types";
 
 export interface CityClients {
   total: number;
@@ -19,6 +19,7 @@ export class ClientsService {
       city: CITY_ENUM.PORTO_ALEGRE,
       createdBy: 'user1',
       orgUid: 'p9fw9ejf12-0ej',
+      position: 1,
       jobStatus: {
         status: CLIENT_STATUS_ENUM.IDLE,
         lastUpdated: new Date()
@@ -31,6 +32,7 @@ export class ClientsService {
       city: CITY_ENUM.PORTO_ALEGRE,
       createdBy: 'user1',
       orgUid: 'p9fw9ejf12-0ej',
+      position: 2,
       jobStatus: {
         status: CLIENT_STATUS_ENUM.QUEUED,
         lastUpdated: new Date()
@@ -43,6 +45,7 @@ export class ClientsService {
       city: CITY_ENUM.PORTO_ALEGRE,
       createdBy: 'user1',
       orgUid: 'p9fw9ejf12-0ej',
+      position: 3,
       jobStatus: {
         status: CLIENT_STATUS_ENUM.ERROR,
         lastUpdated: new Date()
@@ -55,6 +58,7 @@ export class ClientsService {
       city: CITY_ENUM.CANOAS,
       createdBy: 'user1',
       orgUid: 'p9fw9ejf12-0ej',
+      position: 1,
       jobStatus: {
         status: CLIENT_STATUS_ENUM.SUCCESS,
         lastUpdated: new Date()
@@ -67,6 +71,7 @@ export class ClientsService {
       city: CITY_ENUM.CANOAS,
       createdBy: 'user1',
       orgUid: 'p9fw9ejf12-0ej',
+      position: 2,
       jobStatus: {
         status: CLIENT_STATUS_ENUM.RUNNING,
         lastUpdated: new Date()

@@ -4,6 +4,10 @@ section {
     text-align: center;
   }
 
+  .buttons {
+    display: flex;
+  }
+
   button {
     font-weight: bold;
     text-transform: uppercase;
@@ -12,7 +16,7 @@ section {
   }
 
   mat-tab-group {
-    margin: 2rem auto;
+    margin: 1rem auto;
   }
 
   @media screen and (min-width: 768px) {
@@ -21,4 +25,3 @@ section {
     }
   }
 }
-

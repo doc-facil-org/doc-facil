@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from "@angular/router";
 
@@ -9,13 +9,13 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
   template: `
     <ul>
       <li routerLink="./clients" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="navEvent.emit(true)">
-        MEUS CLIENTES
+        Meus clientes
       </li>
       <li routerLink="./org" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="navEvent.emit(true)">
         Gestão da organização
       </li>
       <li routerLink="./guide" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="navEvent.emit(true)">
-        GUIA DE INSTRUÇOES
+        Guia de Instruçoes
       </li>
     </ul>
   `,
