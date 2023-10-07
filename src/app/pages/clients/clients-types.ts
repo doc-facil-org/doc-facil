@@ -6,6 +6,7 @@ export interface Client {
   createdBy: string;
   orgUid: string;
   jobStatus: ClientJobStatus;
+  position: number;
 }
 
 export interface ClientJobStatus {

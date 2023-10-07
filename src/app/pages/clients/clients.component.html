@@ -3,10 +3,17 @@
 
   <ng-container *ngIf="clients$ | async as cityClients; else loading">
     <section>
-      <button mat-raised-button color="accent">
-        <mat-icon fontIcon="person_add"></mat-icon>
-        Adicionar cliente
-      </button>
+      <div class="buttons">
+        <button mat-raised-button color="accent">
+          <mat-icon fontIcon="person_add"></mat-icon>
+          Adicionar cliente
+        </button>
+        <button mat-raised-button color="accent">
+          <mat-icon fontIcon="touch_app"></mat-icon>
+          Solicitar encerramento
+        </button>
+      </div>
+
       <mat-tab-group animationDuration="0ms" *ngIf="cityClients.total > 0 else emptyClients">
         <mat-tab label="Porto Alegre">
           <app-client-table [clients]="cityClients.poa"></app-client-table>
