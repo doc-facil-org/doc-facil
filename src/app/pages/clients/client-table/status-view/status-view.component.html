@@ -1,0 +1,5 @@
+<mat-icon *ngIf="status != 'running'; else spinner" [matTooltip]="statusIcon.tooltip">{{statusIcon.image}}</mat-icon>
+
+<ng-template #spinner>
+    <mat-spinner class="spinner-position" diameter="21" matTooltip="Baixando os documentos"></mat-spinner>
+</ng-template>

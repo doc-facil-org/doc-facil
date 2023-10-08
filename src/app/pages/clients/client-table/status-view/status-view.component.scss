@@ -1,0 +1,10 @@
+@import "docfacil-theme";
+
+::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+    stroke: $accent-color !important;
+}
+
+.spinner-position {
+    display: inline-block;
+}

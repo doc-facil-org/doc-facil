@@ -19,7 +19,7 @@ export enum CLIENT_STATUS_ENUM {
   QUEUED = 'queued',
   RUNNING = 'running',
   ERROR = 'error',
-  SUCCESS = 'success'
+  SUCCESS = 'success',
 }
 
 export enum CITY_ENUM {
