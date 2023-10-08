@@ -6,11 +6,13 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { Client } from "../clients-types";
 import { SelectionModel } from '@angular/cdk/collections';
+import {MatButtonModule} from "@angular/material/button";
+import {JobStatusPipe} from "../../../shared/job-status.pipe";
 
 @Component({
   selector: 'app-client-table',
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatCheckboxModule, MatMenuModule, MatIconModule],
+  imports: [CommonModule, MatTableModule, MatCheckboxModule, MatMenuModule, MatIconModule, MatButtonModule, JobStatusPipe],
   templateUrl: './client-table.component.html',
   styleUrls: ['./client-table.component.scss']
 })

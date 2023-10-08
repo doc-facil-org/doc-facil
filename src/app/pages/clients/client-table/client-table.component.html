@@ -1,60 +1,58 @@
 <table mat-table [dataSource]="clients">
 
-    <ng-container matColumnDef="select">
-        <th mat-header-cell *matHeaderCellDef>
-            <mat-checkbox (change)="$event ? toggleAllRows() : null" [checked]="selection.hasValue() && isAllSelected()"
-                [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
-            </mat-checkbox>
-        </th>
-        <td mat-cell *matCellDef="let row">
-            <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
-                [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
-            </mat-checkbox>
-        </td>
-    </ng-container>
+  <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-checkbox (change)="$event ? toggleAllRows() : null" [checked]="selection.hasValue() && isAllSelected()"
+                    [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+      </mat-checkbox>
+    </th>
+    <td mat-cell *matCellDef="let row">
+      <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                    [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+      </mat-checkbox>
+    </td>
+  </ng-container>
 
-    <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>No.</th>
-        <td mat-cell *matCellDef="let element">{{ element.position }}</td>
-    </ng-container>
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>No.</th>
+    <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+  </ng-container>
 
-    <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nome</th>
-        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
-    </ng-container>
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Nome</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
 
-    <ng-container matColumnDef="cnpj">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>CNPJ</th>
-        <td mat-cell *matCellDef="let element">{{ element.cnpj }}</td>
-    </ng-container>
+  <ng-container matColumnDef="cnpj">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>CNPJ</th>
+    <td mat-cell *matCellDef="let element">{{ element.cnpj }}</td>
+  </ng-container>
 
-    <ng-container matColumnDef="status">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
-        <td mat-cell *matCellDef="let element">{{ element.jobStatus.status }}</td>
-    </ng-container>
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+    <td mat-cell *matCellDef="let element">{{ element.jobStatus.status | jobStatus }}</td>
+  </ng-container>
 
-    <ng-container matColumnDef="menu">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Ações</th>
-        <td mat-cell *matCellDef="let element">
-            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu">
-                <button mat-menu-item>
-                    <span>Mostrar documentos baixados</span>
-                </button>
-                <button mat-menu-item>
-                    <span>Editar dados do cliente</span>
-                </button>
-            </mat-menu>
-
-
-        </td>
-    </ng-container>
+  <ng-container matColumnDef="menu">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Ações</th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <span>Mostrar documentos baixados</span>
+        </button>
+        <button mat-menu-item>
+          <span>Editar dados do cliente</span>
+        </button>
+      </mat-menu>
 
 
+    </td>
+  </ng-container>
 
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
