@@ -14,7 +14,7 @@ export const appConfig: ApplicationConfig = {
         clientId: environment.clientId,
         authorizationParams: { redirect_uri: `${window.location.origin}/user/home` }
     })),
-    provideAnimations()
+    provideAnimations(),
 ],
 
 };

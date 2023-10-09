@@ -4,8 +4,8 @@
   <ng-container *ngIf="clients$ | async as cityClients; else loading">
     <section>
       <div class="actions">
-        <button mat-raised-button color="accent">Adicionar cliente</button>
-        <button mat-raised-button color="accent">Solicitar encerramento</button>
+        <button mat-raised-button color="accent" (click)="addClient()">Adicionar cliente</button>
+        <button mat-raised-button color="warn">Solicitar encerramento</button>
       </div>
 
       <mat-tab-group animationDuration="0ms" *ngIf="cityClients.total > 0 else emptyClients">

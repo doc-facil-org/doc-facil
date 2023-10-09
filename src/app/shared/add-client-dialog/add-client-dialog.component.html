@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>Adicionar Cliente</h2>
+<mat-dialog-content>
+  <form [formGroup]="clientForm">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>CNPJ</mat-label>
+      <input matInput formControlName="cnpj" placeholder="00.000.000/0000-00">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Senha do Cliente</mat-label>
+      <input matInput formControlName="password">
+    </mat-form-field>
+
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-flat-button (click)="addClient()" [disabled]="clientForm.invalid">Adicionar cliente</button>
+</mat-dialog-actions>
