@@ -19,7 +19,6 @@ import {AddClientDialogComponent} from "../../shared/add-client-dialog/add-clien
   providers: [ClientsService]
 })
 export class ClientsComponent implements OnInit {
-
   private clientsService = inject(ClientsService);
   private dialog = inject(MatDialog);
 
@@ -31,9 +30,8 @@ export class ClientsComponent implements OnInit {
 
   addClient() {
     const dialogRef = this.dialog.open(AddClientDialogComponent);
-    dialogRef.afterClosed().subscribe((result?: { name: string, cnpj: string, password: string }) => {
+    dialogRef.afterClosed().subscribe((result: boolean) => {
       if (result) {
-        console.log('added', result);
         this.clients$ = this.clientsService.getClients();
       }
     });

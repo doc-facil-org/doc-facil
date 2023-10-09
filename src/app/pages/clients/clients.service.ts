@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { concatMap, interval, map, Observable, of } from "rxjs";
+import {concatMap, interval, map, Observable, of, throwError} from "rxjs";
 import { CITY_ENUM, Client, CLIENT_STATUS_ENUM } from "./clients-types";
 
 export interface CityClients {
@@ -101,5 +101,10 @@ export class ClientsService {
         canoas: clients.filter((c) => c.city === CITY_ENUM.CANOAS)
       }
     }));
+  }
+
+  createClient(client: { name: string, cnpj: string, password: string }) {
+    // return interval(2000).pipe(map(() => {throw new Error('error') }));
+    return interval(2000);
   }
 }
