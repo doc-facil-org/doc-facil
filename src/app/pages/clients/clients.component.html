@@ -5,15 +5,15 @@
     <section>
       <div class="actions">
         <button mat-raised-button color="accent" (click)="addClient()">Adicionar cliente</button>
-        <button mat-raised-button color="warn">Solicitar encerramento</button>
+        <button mat-raised-button color="warn" [disabled]="selectedClients.length === 0" (click)="requestFiles()">Solicitar encerramento</button>
       </div>
 
-      <mat-tab-group animationDuration="0ms" *ngIf="cityClients.total > 0 else emptyClients">
+      <mat-tab-group animationDuration="0ms" *ngIf="cityClients.total > 0 else emptyClients" (selectedTabChange)="changeCityTab($event)">
         <mat-tab label="Porto Alegre">
-          <app-client-table [clients]="cityClients.poa"></app-client-table>
+          <app-client-table [clients]="cityClients.poa" (selectionChange)="selectedPoaClients = $event; selectedClients = selectedPoaClients"></app-client-table>
         </mat-tab>
         <mat-tab label="Canoas">
-          <app-client-table [clients]="cityClients.canoas"></app-client-table>
+          <app-client-table [clients]="cityClients.canoas" (selectionChange)="selectedCanoasClients = $event; selectedClients = selectedCanoasClients"></app-client-table>
         </mat-tab>
       </mat-tab-group>
       <ng-template #emptyClients>

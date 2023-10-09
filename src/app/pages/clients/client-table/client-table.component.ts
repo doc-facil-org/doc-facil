@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatCheckboxChange, MatCheckboxModule} from '@angular/material/checkbox';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { Client } from "../clients-types";
@@ -18,6 +18,7 @@ import {JobStatusPipe} from "../../../shared/job-status.pipe";
 })
 export class ClientTableComponent {
   @Input() clients: Client[] = [];
+  @Output() selectionChange = new EventEmitter<Client[]>();
   displayedColumns = ['select', 'position', 'name', 'cnpj', 'status', 'menu']
   selection = new SelectionModel<Client>(true, []);
 
@@ -34,7 +35,6 @@ export class ClientTableComponent {
       this.selection.clear();
       return;
     }
-
     this.selection.select(...this.clients);
   }
 
@@ -44,5 +44,17 @@ export class ClientTableComponent {
       return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
     }
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
+  }
+
+  changeSelection(row: any) {
+    this.selection.toggle(row);
+    this.selectionChange.emit(this.selection.selected);
+  }
+
+  checkAllRowsChange(event: MatCheckboxChange) {
+    if (event) {
+      this.toggleAllRows();
+    }
+    this.selectionChange.emit(this.selection.selected);
   }
 }

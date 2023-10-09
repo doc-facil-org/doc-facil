@@ -104,7 +104,14 @@ export class ClientsService {
   }
 
   createClient(client: { name: string, cnpj: string, password: string }) {
-    // return interval(2000).pipe(map(() => {throw new Error('error') }));
+    // TODO: create client
+    // return interval(2000).pipe(map(() => {throw new Error('error') })); //with error
+    return interval(2000);
+  }
+
+  requestClientsFiles(clients: Client[], month: number) {
+    // TODO: request files
+    // return interval(2000).pipe(map(() => {throw new Error('error') })); //with error
     return interval(2000);
   }
 }
